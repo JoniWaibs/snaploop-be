@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", // moderno, soportado por Node 18+
+    "module": "NodeNext", // para soportar ES Modules en Node
+    "moduleResolution": "NodeNext", // resolución de módulos moderna
+    "esModuleInterop": true, // para importar paquetes CJS sin problemas
+    "forceConsistentCasingInFileNames": true,
+    "strict": true, // activa el modo estricto de TS
+    "skipLibCheck": true, // mejora el tiempo de build
+    "baseUrl": "./src", // base de los paths relativos
+    "paths": {
+      "@routes/*": ["routes/*"],
+      "@plugins/*": ["plugins/*"]
+    },
+    "outDir": "./dist", // salida de la compilación
+    "resolveJsonModule": true // permite importar JSONs si los usás
+  },
+  "include": ["src/**/*.ts"], // incluye todos los archivos ts dentro de src
+  "exclude": ["node_modules", "dist"] // excluye carpeta de salida y dependencias
+}
