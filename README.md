@@ -1,4 +1,4 @@
-# 🎉 Shared Albums with Face Classification
+# 🎉 Shared Albums with Face Classification by AI
 
 ## Description
 
