@@ -1,102 +1,101 @@
+# 🎉 Shared Albums with Face Classification
 
-# 🎉 Álbumes Compartidos con Clasificación de Rostros
+## Description
 
-## Descripción
-
-Esta es una **aplicación web progresiva (PWA)** diseñada para que grupos de amigos puedan **subir, compartir y clasificar fotos automáticamente** utilizando reconocimiento facial (AWS Rekognition). Los usuarios pueden organizar fotos de eventos compartidos y descargarlas de manera personalizada.
+This is a **Progressive Web App (PWA)** designed for groups of friends to **upload, share, and automatically classify photos by AI** using facial AI recognition (AWS Rekognition). Users can organize event photos and download them in a personalized way.
 
 ---
 
-## 🛠️ Tecnologías Usadas
+## 🛠️ Technologies Used
 
-- **Frontend**: [Next.js 15](https://nextjs.org/) + PWA, alojado en Vercel
-- **Backend**: [Fastify](https://www.fastify.io/) + [TypeScript](https://www.typescriptlang.org/)
-- **Base de Datos**: [PostgreSQL](https://www.postgresql.org/) con [Prisma ORM](https://www.prisma.io/)
-- **Autenticación**: Google OAuth + JWT
-- **Almacenamiento de Imágenes**: [AWS S3](https://aws.amazon.com/s3/)
-- **Reconocimiento Facial**: [AWS Rekognition](https://aws.amazon.com/rekognition/)
-- **Pasarelas de Pago**:
+- **Frontend**: [Next.js 15](https://nextjs.org/) + PWA, hosted on Vercel  
+- **Backend**: [Fastify](https://www.fastify.io/) + [TypeScript](https://www.typescriptlang.org/)  
+- **Database**: [PostgreSQL](https://www.postgresql.org/) with [Prisma ORM](https://www.prisma.io/)  
+- **Authentication**: Google OAuth + JWT  
+- **Image Storage**: [AWS S3](https://aws.amazon.com/s3/)  
+- **Facial AI Recognition**: [AWS Rekognition](https://aws.amazon.com/rekognition/)  
+- **Payment Gateways**:
   - Mercado Pago (Argentina)
-  - PayPal (Internacional)
-- **Internacionalización**: [next-i18next](https://github.com/isaachinman/next-i18next)
+  - PayPal (International)
+- **Internationalization**: [next-i18next](https://github.com/isaachinman/next-i18next)
 
 ---
 
-## 🚀 Características Principales
+## 🚀 Key Features
 
-1. **Registro e Inicio de Sesión**:
-   - Inicia sesión con Google, genera un token JWT para autenticación.
-   
-2. **Creación de Álbum**:
-   - Crea álbumes con un ID único y un link de invitación.
+1. **Sign Up and Login**:
+   - Sign in with Google, generate a JWT token for authentication.
 
-3. **Invitación**:
-   - Comparte álbumes mediante un enlace (WhatsApp, Telegram, etc.).
-   
-4. **Subida de Fotos**:
-   - Los usuarios pueden subir fotos a un álbum. Las imágenes se almacenan en AWS S3.
+2. **Album Creation**:
+   - Create albums with a unique ID and invitation link.
 
-5. **Clasificación Automática de Rostros**:
-   - AWS Rekognition clasifica y agrupa fotos por rostro, facilitando la visualización de fotos personales, grupales y paisajes.
+3. **Invitation**:
+   - Share albums via a link (WhatsApp, Telegram, etc.).
 
-6. **Exploración y Filtrado**:
-   - Los usuarios pueden filtrar fotos por categorías: personales, grupales, paisajes.
+4. **Photo Upload**:
+   - Users can upload photos to an album. Images are stored in AWS S3.
 
-7. **Descarga Personalizada**:
-   - Los usuarios pueden descargar fotos en las que aparecen o todo el álbum.
+5. **Automatic Face Classification**:
+   - AWS Rekognition classifies and groups photos by face using AI, making it easy to browse personal, group, and landscape images.
 
----
+6. **Browsing and Filtering**:
+   - Users can filter photos by categories: personal, group, landscape.
 
-## 💰 Monetización
-
-- **Plan Gratuito**:
-  - 1 álbum por usuario.
-  - Hasta 15 miembros por álbum.
-  - Procesamiento de fotos incluido (AWS Rekognition + S3).
-
-- **Plan Pago**:
-  - Desde el **segundo álbum** o **más de 15 miembros**: **$10 USD por álbum**.
-  - Desbloquea procesamiento ilimitado y sin restricciones de miembros.
+7. **Custom Download**:
+   - Users can download only the photos they appear in, or the entire album.
 
 ---
 
-## 🌍 Internacionalización
+## 💰 Monetization
 
-- Soporte para **Español** e **Inglés**.
-- Detecta el idioma del navegador o permite elegir entre idiomas disponibles.
+- **Free Plan**:
+  - 1 album per user.
+  - Up to 15 members per album.
+  - Includes photo processing (AWS Rekognition + S3).
+
+- **Paid Plan**:
+  - From the **second album** or **more than 15 members**: **$10 USD per album or equivalent**.
+  - Unlocks unlimited processing and no member limits.
+  - Unlocks unlimited albums.
+---
+
+## 🌍 Internationalization
+
+- Supports **Spanish** and **English**.
+- Detects browser language or allows the user to choose a preferred language.
 
 ---
 
-## 📦 Instalación
+## 📦 Installation
 
-1. Clona el repositorio:
+1. Clone the repository:
    ```bash
    git clone <repo-url>
    ```
 
-2. Instala las dependencias:
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Configura las variables de entorno (`.env`):
-   - Google OAuth credentials.
-   - AWS credentials (S3, Rekognition).
-   - Base de datos y otras configuraciones.
+3. Set up environment variables (`.env`):
+   - Google OAuth credentials
+   - AWS credentials (S3, Rekognition)
+   - Database and other configurations
 
-4. Inicia el servidor de desarrollo:
+4. Start the development server:
    ```bash
    npm run dev
    ```
 
 ---
 
-## 📝 Contribuciones
+## 📝 Contributions
 
-Si deseas contribuir al proyecto, por favor realiza un **fork** y envía tus **pull requests**.
+If you want to contribute to the project, please **fork** the repository and submit your **pull requests**.
 
 ---
 
-## 📬 Contacto
+## 📬 Contact
 
-- Para más información, preguntas o sugerencias, puedes contactar al equipo de desarrollo a través de [correo de contacto].
+- For more information, questions, or suggestions, contact the development team at [joniwaibs@gmail.com](mailto:joniwaibs@gmail.com).
