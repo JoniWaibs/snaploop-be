@@ -9,7 +9,7 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "format:check": "prettier --check .",
-    "format": "prettier --write .",
+    "format:write": "prettier --write .",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
