@@ -10,11 +10,12 @@
     "baseUrl": "./src", // base de los paths relativos
     "paths": {
       "@routes/*": ["routes/*"],
-      "@plugins/*": ["plugins/*"]
+      "@plugins/*": ["plugins/*"],
+      "@tests/*": ["__tests__/*"]
     },
     "outDir": "./dist", // salida de la compilación
     "resolveJsonModule": true // permite importar JSONs si los usás
   },
-  "include": ["src/**/*.ts"], // incluye todos los archivos ts dentro de src
+  "include": ["src/**/*.ts", "__tests__/**/*.ts"], // incluye todos los archivos ts dentro de src
   "exclude": ["node_modules", "dist"] // excluye carpeta de salida y dependencias
 }
