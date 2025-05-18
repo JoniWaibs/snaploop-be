@@ -1,9 +1,9 @@
-import { FastifyPluginAsync } from 'fastify';
+import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 
-const healthCheckRoutes: FastifyPluginAsync = async (fastify) => {
-  fastify.get('/', async () => {
+export async function healthCheckRoutes(fastify: FastifyInstance) {
+  fastify.get('/', async (_request: FastifyRequest, _reply: FastifyReply) => {
     return { status: 'ok' };
   });
-};
+}
 
 export default healthCheckRoutes;
