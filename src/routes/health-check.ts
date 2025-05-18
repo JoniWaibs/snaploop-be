@@ -1,9 +1,14 @@
-import { FastifyPluginAsync } from 'fastify';
+import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 
-const healthCheckRoutes: FastifyPluginAsync = async (fastify) => {
-  fastify.get('/', async () => {
-    return { status: 'ok' };
+export async function healthCheckRoutes(fastify: FastifyInstance) {
+  fastify.get('/', async (request: FastifyRequest, reply: FastifyReply) => {
+    request.log.info('Health check request received');
+
+    reply.status(200).send({
+      status: 'ok',
+      message: 'Server is running',
+    });
   });
-};
+}
 
 export default healthCheckRoutes;
