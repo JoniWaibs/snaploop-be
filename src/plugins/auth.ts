@@ -15,18 +15,15 @@ export default fp(async (fastify: FastifyInstance) => {
     },
   });
 
-  fastify.decorate(
-    'authenticate',
-    async function (request: FastifyRequest, reply: FastifyReply) {
-      try {
-        await request.jwtVerify<User>();
-        request.log.info('JWT Verified');
-      } catch (err) {
-        request.log.error('JWT Verification failed:', err);
-        reply.status(401).send({ error: 'Unauthorized' });
-      }
+  fastify.decorate('authenticate', async function (request: FastifyRequest, reply: FastifyReply) {
+    try {
+      await request.jwtVerify<User>();
+      request.log.info('JWT Verified');
+    } catch (err) {
+      request.log.error('JWT Verification failed:', err);
+      reply.status(401).send({ error: 'Unauthorized' });
     }
-  );
+  });
 
   fastify.register(fastifyOauth2, {
     name: 'googleOAuth2',

@@ -16,30 +16,23 @@ export default async function authRoutes(fastify: FastifyInstance) {
     request.log.info('Logging user in Google');
 
     try {
-      const { token } =
-        await fastify.googleOAuth2.getAccessTokenFromAuthorizationCodeFlow(
-          request
-        );
+      const { token } = await fastify.googleOAuth2.getAccessTokenFromAuthorizationCodeFlow(request);
 
       if (!token) {
         reply.status(401).send({ error: 'Unauthorized' });
       }
 
-      const userInfo = await axios.get(
-        'https://www.googleapis.com/oauth2/v2/userinfo',
-        {
-          headers: {
-            Authorization: `Bearer ${token.access_token}`,
-          },
-        }
-      );
+      const userInfo = await axios.get('https://www.googleapis.com/oauth2/v2/userinfo', {
+        headers: {
+          Authorization: `Bearer ${token.access_token}`,
+        },
+      });
 
       if (!userInfo) {
         reply.status(404).send({ error: 'User info not found from Google' });
       }
 
       const user: User = userInfo.data;
-
       request.log.info('User info received from Google:', user.email);
 
       const jwt = fastify.jwt.sign({
@@ -62,8 +55,6 @@ export default async function authRoutes(fastify: FastifyInstance) {
   });
   fastify.get('/logout', async (req, reply) => {
     req.log.info('Closing session');
-    reply
-      .clearCookie('token', { path: '/' })
-      .send({ message: 'Session closed' });
+    reply.clearCookie('token', { path: '/' }).send({ message: 'Session closed' });
   });
 }
