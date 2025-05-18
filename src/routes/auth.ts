@@ -22,7 +22,7 @@ export default async function authRoutes(fastify: FastifyInstance) {
         reply.status(401).send({ error: 'Unauthorized' });
       }
 
-      const userInfo = await axios.get('https://www.googleapis.com/oauth2/v2/userinfo', {
+      const userInfo = await axios.get(process.env.GOOGLE_USER_INFO_URL!, {
         headers: {
           Authorization: `Bearer ${token.access_token}`,
         },
