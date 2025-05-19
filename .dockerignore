@@ -1,0 +1,10 @@
+node_modules
+dist
+coverage/
+.github
+.cursor
+.vscode
+.prettierrc
+.prettierignore
+.eslintrc.json
+.eslintignore

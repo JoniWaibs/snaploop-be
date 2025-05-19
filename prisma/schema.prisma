@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PlanType {
+  FREE
+  PAID
+}
+
+model User {
+  id        String       @id @default(cuid())
+  email     String       @unique
+  name      String?
+  picture   String?
+  role      PlanType     @default(FREE)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+  albums    AlbumUser[]
+  photos    Photo[]      @relation("UploadedPhotos")
+}
+
+model Album {
+  id        String       @id @default(cuid())
+  name      String
+  createdAt DateTime     @default(now())
+  users     AlbumUser[]
+  photos    Photo[]
+}
+
+model AlbumUser {
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  album   Album  @relation(fields: [albumId], references: [id])
+  albumId String
+
+  @@id([userId, albumId])
+}
+
+model Photo {
+  id         String   @id @default(cuid())
+  url        String
+  uploader   User     @relation("UploadedPhotos", fields: [uploaderId], references: [id])
+  uploaderId String
+  album      Album    @relation(fields: [albumId], references: [id])
+  albumId    String
+  facesData  Json?
+  createdAt  DateTime @default(now())
+}
