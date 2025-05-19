@@ -44,7 +44,7 @@ describe('Auth Routes', () => {
 
     app.decorate(
       'authenticate',
-      jest.fn().mockImplementation(async (request, reply) => {
+      jest.fn().mockImplementation(async (request, _reply) => {
         request.user = { email: 'test@example.com', name: 'Test User' };
       })
     );
