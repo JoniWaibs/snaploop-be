@@ -7,7 +7,20 @@ module.exports = {
   collectCoverage: true,
   coverageDirectory: 'coverage',
   moduleNameMapper: {
-    '^@routes/(.*)$': '<rootDir>/src/routes/$1',
-    '^@plugins/(.*)$': '<rootDir>/src/plugins/$1',
+    '^@domain/(.*)$': '<rootDir>/src/domain/$1',
+    '^@application/(.*)$': '<rootDir>/src/application/$1',
+    '^@infrastructure/(.*)$': '<rootDir>/src/infrastructure/$1',
+    '^@shared/(.*)$': '<rootDir>/src/shared/$1',
+    '^@src/(.*)$': '<rootDir>/src/$1',
   },
+  transform: {
+    '^.+\\.ts$': [
+      'ts-jest',
+      {
+        tsconfig: 'tsconfig.json',
+      },
+    ],
+  },
+  moduleFileExtensions: ['ts', 'js', 'json'],
+  rootDir: '.',
 };

@@ -11,14 +11,23 @@ services:
     ports:
       - '${POSTGRES_PORT}:5432'
 
+  # Servicio para ejecutar migraciones
+  prisma-migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: npx prisma migrate deploy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    depends_on:
+      - db
+
   backend:
     build:
       context: .
       dockerfile: Dockerfile.dev
     restart: on-failure
-    env_file:
-      - .env.local
-    command: npx ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/index.ts
+    command: sh -c "npx prisma generate &&  npx ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/index.ts"
     environment:
       NODE_ENV: development
       NODE_PATH: /app/node_modules
@@ -38,6 +47,7 @@ services:
       - '${API_PORT}:8080'
     depends_on:
       - db
+      - prisma-migrate
     volumes:
       - ./src:/app/src
       - ./prisma:/app/prisma
