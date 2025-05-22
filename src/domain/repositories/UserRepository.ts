@@ -1,7 +1,7 @@
 import { User } from '@domain/entities/User';
 
-export interface UserRepository {
-  findByConditions({ email, googleId }: { email?: string; googleId?: string }): Promise<User | null>;
-  create(user: User): Promise<User>;
-  update(user: User): Promise<User>;
+export abstract class UserRepository {
+  abstract findByConditions({ email, googleId }: { email?: string; googleId?: string }): Promise<User | null>;
+  abstract create(user: User): Promise<User>;
+  abstract update(user: User): Promise<User>;
 }
