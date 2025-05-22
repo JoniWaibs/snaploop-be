@@ -11,7 +11,11 @@
     "paths": {
       "@routes/*": ["routes/*"],
       "@plugins/*": ["plugins/*"],
-      "@tests/*": ["__tests__/*"]
+      "@tests/*": ["__tests__/*"],
+      "@domain/*": ["domain/*"],
+      "@application/*": ["application/*"],
+      "@infrastructure/*": ["infrastructure/*"],
+      "@shared/*": ["shared/*"]
     },
     "outDir": "./dist",
     "resolveJsonModule": true

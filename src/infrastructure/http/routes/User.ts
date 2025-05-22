@@ -1,5 +1,7 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 
+import { UserController } from '@infrastructure/http/controllers/User';
+
 declare module 'fastify' {
   interface FastifyInstance {
     authenticate: (request: FastifyRequest, reply: FastifyReply) => Promise<void>;
@@ -8,8 +10,9 @@ declare module 'fastify' {
 
 export default async function userRoutes(fastify: FastifyInstance) {
   const { authenticate } = fastify;
+  const userController = new UserController();
+
   fastify.get('/', { preHandler: [authenticate] }, async (req: FastifyRequest, reply: FastifyReply) => {
-    req.log.info('User logger, data received from Google');
-    reply.status(200).send({ user: req.user });
+    return userController.getUser(req, reply);
   });
 }
