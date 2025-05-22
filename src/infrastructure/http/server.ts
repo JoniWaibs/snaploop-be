@@ -1,8 +1,8 @@
 import Fastify, { FastifyPluginAsync, FastifyInstance } from 'fastify';
 
-import authRoutes from '@infrastructure/http/routes/Auth';
 import healthCheckRoutes from '@infrastructure/http/routes/HealthCheck';
-import userRoutes from '@infrastructure/http/routes/User';
+import userRoutes from '@infrastructure/http/routes/Sser';
+import authRoutes from '@infrastructure/http/routes/Suth';
 import authPlugin from '@infrastructure/plugins/Auth';
 import cors from '@infrastructure/plugins/Cors';
 import prismaPlugin from '@infrastructure/plugins/Prisma';
