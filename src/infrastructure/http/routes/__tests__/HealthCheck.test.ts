@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 
-import { healthCheckRoutes } from '../health-check';
+import { healthCheckRoutes } from '../HealthCheck';
 
 describe('Health Check Routes', () => {
   let fastify: FastifyInstance;

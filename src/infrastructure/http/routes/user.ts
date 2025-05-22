@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 
-import { UserController } from '../controllers/user';
+import { UserController } from '@infrastructure/http/controllers/User';
 
 declare module 'fastify' {
   interface FastifyInstance {

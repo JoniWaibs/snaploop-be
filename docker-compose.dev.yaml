@@ -27,7 +27,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     restart: on-failure
-    command: sh -c "npx prisma generate &&  npx ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/index.ts"
+    command: sh -c "npx prisma generate && npx ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/index.ts"
     environment:
       NODE_ENV: development
       NODE_PATH: /app/node_modules

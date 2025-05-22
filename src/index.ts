@@ -1,6 +1,6 @@
 import Fastify from 'fastify';
 
-import { Server } from 'infrastructure/http/server';
+import { Server } from '@infrastructure/http/Server';
 
 (() => {
   main();

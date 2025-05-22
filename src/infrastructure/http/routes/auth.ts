@@ -1,7 +1,7 @@
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
 
 import { LoginUserFromGoogleUseCase } from '@application/use-cases/LoginUserFromGoogleUseCase';
-import { AuthController } from '@infrastructure/http/controllers/auth';
+import { AuthController } from '@infrastructure/http/controllers/Auth';
 import { PrismaUserRepository } from '@infrastructure/persistance/PrismaUserRepository';
 import { PrismaClient } from '@prisma/client';
 

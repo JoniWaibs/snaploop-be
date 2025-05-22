@@ -1,11 +1,11 @@
 import Fastify, { FastifyPluginAsync, FastifyInstance } from 'fastify';
 
-import authRoutes from '@infrastructure/http/routes/auth';
-import healthCheckRoutes from '@infrastructure/http/routes/health-check';
-import userRoutes from '@infrastructure/http/routes/user';
-import authPlugin from '@infrastructure/plugins/auth';
-import cors from '@infrastructure/plugins/cors';
-import prismaPlugin from '@infrastructure/plugins/prisma';
+import authRoutes from '@infrastructure/http/routes/Auth';
+import healthCheckRoutes from '@infrastructure/http/routes/HealthCheck';
+import userRoutes from '@infrastructure/http/routes/User';
+import authPlugin from '@infrastructure/plugins/Auth';
+import cors from '@infrastructure/plugins/Cors';
+import prismaPlugin from '@infrastructure/plugins/Prisma';
 import dotenv from 'dotenv';
 
 import fastifyCookie from '@fastify/cookie';
