@@ -1,11 +1,14 @@
-import { buildApp } from './app';
+import Fastify from 'fastify';
 
-const app = buildApp();
+import { Server } from 'infrastructure/http/server';
 
-app.listen({ port: 8080, host: '0.0.0.0' }, (err, address) => {
-  if (err) {
-    app.log.error(err);
-    process.exit(1);
-  }
-  console.log(`🚀 - Server listening at ${address}`);
-});
+(() => {
+  main();
+})();
+
+async function main() {
+  const fastify = Fastify({
+    logger: true,
+  });
+  new Server(fastify).run();
+}
